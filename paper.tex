@@ -10,6 +10,7 @@
 \usepackage{svg}
 \usepackage{geometry}
 \usepackage{indentfirst}
+\usepackage{float}
 
 \title{Диплом}
 \begin{document}
@@ -96,7 +97,10 @@
 
 Администратор, настраивающий DHCP сервер должен иметь возможность создавать экземпляры таких групп, и присваивать им имена, для того чтобы на них затем ссылаться (возможно из нескольких мест одновременно).
 
-\includegraphics[width=\textwidth]{build/first.png}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/first.png}
+    \caption{}
+\end{figure}
 
 \begin{itemize}
     \item Выбор подсети по адресу ретранслятора
@@ -111,9 +115,24 @@
 
 \subsection{Архитектура}
 
-\includegraphics[width=\textwidth]{build/second.png}
-\includegraphics[width=\textwidth]{build/packet-view.png}
-\includegraphics[width=\textwidth]{build/pinger.png}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/second.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/packet-view.png}
+    \caption{}
+\end{figure}
+
+Тут класс Options\_view написан на шаблонах и гарантирует на этапе компиляции правильность работы с DHCP опциями.
+
+Класс All\_options\_view следит за тем, используются ли поля sname и file в заголовке для хранения опций, и, предоставляя такой же, как и класс Options\_view интерфейс, абстрагирует данную логику.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/pinger.png}
+    \caption{}
+\end{figure}
 
 \pagebreak
 \subsection{Тестирование}
