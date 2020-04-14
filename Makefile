@@ -6,7 +6,7 @@ all: $(BUILDDIR) pdf аннотация.tex paper.tex
 
 pdf: $(BUILDDIR)/аннотация.pdf $(BUILDDIR)/paper.pdf
 
-diagrams: $(BUILDDIR)/first.png
+diagrams: $(BUILDDIR)/first.png $(BUILDDIR)/second.png $(BUILDDIR)/test-emu.png
 
 $(BUILDDIR):
 	mkdir $(BUILDDIR)
@@ -18,6 +18,12 @@ $(BUILDDIR)/paper.pdf: paper.tex diagrams
 	pdflatex -output-directory $(BUILDDIR) $^
 
 $(BUILDDIR)/first.png: dia/first.dia
+	dia $^ --export $@
+
+$(BUILDDIR)/second.png: dia/second.dia
+	dia $^ --export $@
+
+$(BUILDDIR)/test-emu.png: dia/test-emu.dia
 	dia $^ --export $@
 
 clean:
