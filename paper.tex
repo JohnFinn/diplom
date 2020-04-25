@@ -102,6 +102,12 @@
 
 Если DHCP сервер не находится в той же локальной сети, в ней необходимо будет настроить DHCP ретранслятор.
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth / 2]{build/dhcp-simple.png}
+    \caption{}
+\end{figure}
+
+
 \subsection{Постановка задачи}
 
 \begin{itemize}
@@ -139,6 +145,81 @@
 В связи с выше сказанным был сделан выбор в пользу написания DHCP сервера с нуля.
 
 \subsection{Функциональные требования}
+
+Реализация протокола DHCP в соответствии с RFC2131.
+\begin{itemize}
+    \item Прослушивание сети на наличие DHCP запросов.
+    \item Присвоение настроек хоста на основе заданных администратором параметров.
+    \item Отправка ответа с присвоенными настройками.
+\end{itemize}
+
+Поддержка следующих опций
+\begin{description}
+    \item[2] Time Offset
+    \item[3] Router
+    \item[4] Time server
+    \item[5] Name server
+    \item[6] Domain name server
+    \item[7] Log server
+    \item[8] Cookie server
+    \item[9] LPR server
+    \item[10] Impress server
+    \item[11] Resource location server
+    \item[12] Host name
+    \item[13] Boot file size
+    \item[14] Merit dump file
+    \item[15] Domain name
+    \item[16] Swap server
+    \item[17] Root path
+    \item[18] Extentions path
+    \item[19] IP forwarding enable/disable
+    \item[20] Non-local source routing enable/disable
+    \item[21] Policy filter
+    \item[22] Maximum datagram reassembly size
+    \item[23] Default IP time to live
+    \item[24] Path MTU aging timeout
+    \item[25] Path MTU Plateau Table
+    \item[26] Interface MTU
+    \item[27] All subnets are local
+    \item[28] Broadcast Address
+    \item[29] Perform mask discovery
+    \item[30] Mask supplier
+    \item[31] Perform router discovery
+    \item[32] Router solicitation address
+    \item[33] Static route
+    \item[34] Trailer encapsulation
+    \item[35] ARP cache timeout
+    \item[36] Ethernet encapsulation option
+    \item[37] TCP default TTL
+    \item[38] TCP keepalive interval
+    \item[39] TCP keepalive garbage
+    \item[40] Network Information service domain
+    \item[41] Network Information servers
+    \item[42] Network time protocol servers
+    \item[43, 60] Vendor specific Information, Vendor class identifier
+    \item[44] NetBIOS over TCP/IP name server
+    \item[45] NetBIOS over TCP/IP datagram distribution server
+    \item[46] NetBIOS over TCP/IP node type
+    \item[47] NetBIOS over TCP/IP scope
+    \item[48] X window system font server
+    \item[49] X window system display manager
+    \item[64] Network Information service+ domain
+    \item[65] Network Information service+ servers
+    \item[68] Mobile IP home agent
+    \item[69] Simple Mail Transport Protocol (SMTP) server
+    \item[70] Post Office Protocol (POP3) server
+    \item[71] Network news Transport Protocol (NNTP) server
+    \item[72] Default world wide web (www) server
+    \item[73] Default finger server
+    \item[74] Default Internet relay chat (IRC) server
+    \item[75] StreetTalk Server
+    \item[76] StreetTalk directory assistance (STDA) server
+    \item[66] TFTP server name
+    \item[67] Bootfile name
+    \item[121] Classless route
+    \item[118] Subnet selection
+    \item[93, 94, 97] PXE options
+\end{description}
 
 В протоколе DHCP помимо IP адресов отправлять множество других параметров.
 Эти параметры необходимо разбить на несколько логически связанных групп.
