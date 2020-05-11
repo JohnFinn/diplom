@@ -285,6 +285,12 @@ DHCP серверов может быть несколько, а клиент в
     \caption{}
 \end{figure}
 
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{build/dhcp-configurator.png}
+    \caption{}
+\end{figure}
+
 Тут класс Options\_view написан на шаблонах и гарантирует на этапе компиляции правильность работы с DHCP опциями.
 
 Класс All\_options\_view следит за тем, используются ли поля sname и file в заголовке для хранения опций, и, предоставляя такой же, как и класс Options\_view интерфейс, абстрагирует данную логику.
