@@ -13,7 +13,8 @@ diagrams: $(BUILDDIR)/first.png               \
 		  $(BUILDDIR)/pinger.png              \
 		  $(BUILDDIR)/router-architecture.png \
 		  $(BUILDDIR)/dhcp-simple.png		  \
-		  $(BUILDDIR)/dhcp-configurator.png
+		  $(BUILDDIR)/dhcp-configurator.png	  \
+		  $(BUILDDIR)/dhcp-activity-relay.png
 
 
 $(BUILDDIR):
@@ -47,6 +48,9 @@ $(BUILDDIR)/dhcp-simple.png: dia/dhcp-simple.dia
 	dia $^ --export $@
 
 $(BUILDDIR)/dhcp-configurator.png: dia/dhcp-configurator.dia
+	dia $^ --export $@
+
+$(BUILDDIR)/dhcp-activity-relay.png: dia/dhcp-activity-relay.dia
 	dia $^ --export $@
 
 clean:
