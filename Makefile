@@ -12,9 +12,13 @@ diagrams: $(BUILDDIR)/first.png               \
 		  $(BUILDDIR)/packet-view.png         \
 		  $(BUILDDIR)/pinger.png              \
 		  $(BUILDDIR)/router-architecture.png \
-		  $(BUILDDIR)/dhcp-simple.png		  \
-		  $(BUILDDIR)/dhcp-configurator.png	  \
-		  $(BUILDDIR)/dhcp-activity-relay.png
+		  $(BUILDDIR)/dhcp-simple.png         \
+		  $(BUILDDIR)/dhcp-configurator.png   \
+		  $(BUILDDIR)/dhcp-activity-relay.png \
+		  $(BUILDDIR)/relay-net.png           \
+		  $(BUILDDIR)/complex-options.png     \
+		  $(BUILDDIR)/pool.png                \
+		  $(BUILDDIR)/address-allocator.png
 
 
 $(BUILDDIR):
@@ -52,6 +56,18 @@ $(BUILDDIR)/dhcp-configurator.png: dia/dhcp-configurator.dia
 
 $(BUILDDIR)/dhcp-activity-relay.png: dia/dhcp-activity-relay.dia
 	dia $^ --export $@
+
+$(BUILDDIR)/relay-net.png: dia/relay-net.dia
+	dia $^ --export $@
+
+$(BUILDDIR)/complex-options.png: dia/complex-options.dia
+	dia $^ --export $@
+
+$(BUILDDIR)/pool.png: dia/pool.dia
+	dia $^ --export $@
+
+$(BUILDDIR)/address-allocator.png: dia/address-allocator.dia
+	dia $^ --export=$@
 
 clean:
 	rm -r $(BUILDDIR)
