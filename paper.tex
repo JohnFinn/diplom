@@ -122,7 +122,7 @@ DHCP серверов может быть несколько, а клиент в
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{build/dhcp-simple.png}
-    \caption{}
+    \caption{Activity диаграмма, DHCP протокола}
 \end{figure}
 
 Но широковещательные пакеты не уходят за предел локальной сети.
@@ -131,7 +131,7 @@ DHCP серверов может быть несколько, а клиент в
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/relay-net.png}
-    \caption{}
+    \caption{Диаграмма развёртывания примера использования DHCP ретранслятора.}
 \end{figure}
 
 Он ловит широковещятельные запросы и перенаправляет на заданный ему администратором IP адрес DHCP сервера.
@@ -144,7 +144,7 @@ DHCP серверов может быть несколько, а клиент в
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.95\textheight]{build/dhcp-activity-relay.png}
-    \caption{}
+    \caption{Activity диаграмма DHCP протокола с использованием ретранслятора}
 \end{figure}
 
 \subsection{Постановка задачи}
@@ -203,137 +203,147 @@ DHCP серверов может быть несколько, а клиент в
     \item Отправка ответа с присвоенными настройками.
 \end{itemize}
 
-Поддержка следующих опций
-\begin{description}
-    \item[2] Time Offset
-    \item[3] Router
-    \item[4] Time server
-    \item[5] Name server
-    \item[6] Domain name server
-    \item[7] Log server
-    \item[8] Cookie server
-    \item[9] LPR server
-    \item[10] Impress server
-    \item[11] Resource location server
-    \item[12] Host name
-    \item[13] Boot file size
-    \item[14] Merit dump file
-    \item[15] Domain name
-    \item[16] Swap server
-    \item[17] Root path
-    \item[18] Extentions path
-    \item[19] IP forwarding enable/disable
-    \item[20] Non-local source routing enable/disable
-    \item[21] Policy filter
-    \item[22] Maximum datagram reassembly size
-    \item[23] Default IP time to live
-    \item[24] Path MTU aging timeout
-    \item[25] Path MTU Plateau Table
-    \item[26] Interface MTU
-    \item[27] All subnets are local
-    \item[28] Broadcast Address
-    \item[29] Perform mask discovery
-    \item[30] Mask supplier
-    \item[31] Perform router discovery
-    \item[32] Router solicitation address
-    \item[33] Static route
-    \item[34] Trailer encapsulation
-    \item[35] ARP cache timeout
-    \item[36] Ethernet encapsulation option
-    \item[37] TCP default TTL
-    \item[38] TCP keepalive interval
-    \item[39] TCP keepalive garbage
-    \item[40] Network Information service domain
-    \item[41] Network Information servers
-    \item[42] Network time protocol servers
-    \item[43, 60] Vendor specific Information, Vendor class identifier
-    \item[44] NetBIOS over TCP/IP name server
-    \item[45] NetBIOS over TCP/IP datagram distribution server
-    \item[46] NetBIOS over TCP/IP node type
-    \item[47] NetBIOS over TCP/IP scope
-    \item[48] X window system font server
-    \item[49] X window system display manager
-    \item[64] Network Information service+ domain
-    \item[65] Network Information service+ servers
-    \item[68] Mobile IP home agent
-    \item[69] Simple Mail Transport Protocol (SMTP) server
-    \item[70] Post Office Protocol (POP3) server
-    \item[71] Network news Transport Protocol (NNTP) server
-    \item[72] Default world wide web (www) server
-    \item[73] Default finger server
-    \item[74] Default Internet relay chat (IRC) server
-    \item[75] StreetTalk Server
-    \item[76] StreetTalk directory assistance (STDA) server
-    \item[66] TFTP server name
-    \item[67] Bootfile name
-    \item[121] Classless route
-    \item[118] Subnet selection
-    \item[93, 94, 97] PXE options
-\end{description}
+Поддержка следующих опций (названия опций взяты из RFC2132):
+\begin{itemize}
+    \item Опция 2 Time Offset
+    \item Опция 3 Router
+    \item Опция 4 Time server
+    \item Опция 5 Name server
+    \item Опция 6 Domain name server
+    \item Опция 7 Log server
+    \item Опция 8 Cookie server
+    \item Опция 9 LPR server
+    \item Опция 10 Impress server
+    \item Опция 11 Resource location server
+    \item Опция 12 Host name
+    \item Опция 13 Boot file size
+    \item Опция 14 Merit dump file
+    \item Опция 15 Domain name
+    \item Опция 16 Swap server
+    \item Опция 17 Root path
+    \item Опция 18 Extentions path
+    \item Опция 19 IP forwarding enable/disable
+    \item Опция 20 Non-local source routing enable/disable
+    \item Опция 21 Policy filter
+    \item Опция 22 Maximum datagram reassembly size
+    \item Опция 23 Default IP time to live
+    \item Опция 24 Path MTU aging timeout
+    \item Опция 25 Path MTU Plateau Table
+    \item Опция 26 Interface MTU
+    \item Опция 27 All subnets are local
+    \item Опция 28 Broadcast Address
+    \item Опция 29 Perform mask discovery
+    \item Опция 30 Mask supplier
+    \item Опция 31 Perform router discovery
+    \item Опция 32 Router solicitation address
+    \item Опция 33 Static route
+    \item Опция 34 Trailer encapsulation
+    \item Опция 35 ARP cache timeout
+    \item Опция 36 Ethernet encapsulation option
+    \item Опция 37 TCP default TTL
+    \item Опция 38 TCP keepalive interval
+    \item Опция 39 TCP keepalive garbage
+    \item Опция 40 Network Information service domain
+    \item Опция 41 Network Information servers
+    \item Опция 42 Network time protocol servers
+    \item Опции 43, 60 Vendor specific Information, Vendor class identifier
+    \item Опция 44 NetBIOS over TCP/IP name server
+    \item Опция 45 NetBIOS over TCP/IP datagram distribution server
+    \item Опция 46 NetBIOS over TCP/IP node type
+    \item Опция 47 NetBIOS over TCP/IP scope
+    \item Опция 48 X window system font server
+    \item Опция 49 X window system display manager
+    \item Опция 64 Network Information service+ domain
+    \item Опция 65 Network Information service+ servers
+    \item Опция 68 Mobile IP home agent
+    \item Опция 69 Simple Mail Transport Protocol (SMTP) server
+    \item Опция 70 Post Office Protocol (POP3) server
+    \item Опция 71 Network news Transport Protocol (NNTP) server
+    \item Опция 72 Default world wide web (www) server
+    \item Опция 73 Default finger server
+    \item Опция 74 Default Internet relay chat (IRC) server
+    \item Опция 75 StreetTalk Server
+    \item Опция 76 StreetTalk directory assistance (STDA) server
+    \item Опция 66 TFTP server name
+    \item Опция 67 Bootfile name
+    \item Опция 121 Classless route
+    \item Опция 118 Subnet selection
+    \item Опции 93, 94, 97 PXE options
+\end{itemize}
 
 Перечисленные выше опции необходимо разбить на группы по их назначению.
 
 \begin{itemize}
     \item Параметры канального уровня.
-        \subitem Время жизни ARP кэша (ARP cache timeout).
-        \subitem Тип Ethernet инкапсуляции, RFC894 или RFC1042.
-    \item Параметры IP, спцеифичные для хоста.
-        \subitem пересылка (forwarding).
-        \subitem Пересылка пакетов с нелокальными раршрутами (non local source routing).
-        \subitem Максимальный размер собираемого сообщения (maximum datagram reassembly size).
-        \subitem Время жизни пакета по умолчанию (TTL).
-        \subitem Время устаревания MTU пути (Path MTU aging timeout).
-        \subitem Фильтры нелокальной маршутизации (policy filter).
-        \subitem Размеры MTU для поиска MTU пути (Path MTU plateau).
+    \begin{itemize}
+        \item Время жизни ARP кэша (ARP cache timeout).
+        \item Тип Ethernet инкапсуляции, RFC894 или RFC1042.
+        \item Параметры IP, спцеифичные для хоста.
+        \item пересылка (forwarding).
+        \item Пересылка пакетов с нелокальными раршрутами (non local source routing).
+        \item Максимальный размер собираемого сообщения (maximum datagram reassembly size).
+        \item Время жизни пакета по умолчанию (TTL).
+        \item Время устаревания MTU пути (Path MTU aging timeout).
+        \item Фильтры нелокальной маршутизации (policy filter).
+        \item Размеры MTU для поиска MTU пути (Path MTU plateau).
+    \end{itemize}
     \item Параметры IP, специфичные для интерфейса.
-        \subitem Значение MTU для интерфейса.
-        \subitem У всех подключенных подсетей такое же MTU (all subnets are local).
-        \subitem Выполнять определение маски подсети (perform mask discovery).
-        \subitem Отвечать на ICMP запросы маски подсети (mask supplier).
-        \subitem Выполнять поиск маршрутов способом определённым в RFC1256 (perform router discovery).
-        \subitem Адрес запросов обнаружения маршутизаторов (router solicitation address).
+    \begin{itemize}
+        \item Значение MTU для интерфейса.
+        \item У всех подключенных подсетей такое же MTU (all subnets are local).
+        \item Выполнять определение маски подсети (perform mask discovery).
+        \item Отвечать на ICMP запросы маски подсети (mask supplier).
+        \item Выполнять поиск маршрутов способом определённым в RFC1256 (perform router discovery).
+        \item Адрес запросов обнаружения маршутизаторов (router solicitation address).
+    \end{itemize}
     \item Параметры TCP.
-        \subitem Время жизни TCP пакетов по умолчанию (default TCP TTL).
-        \subitem Интервал передачи сообщения TCP keepalive.
-        \subitem Передавать сообщения TCP keepalive с "garbage" октетом для обратной совместимости.
+    \begin{itemize}
+        \item Время жизни TCP пакетов по умолчанию (default TCP TTL).
+        \item Интервал передачи сообщения TCP keepalive.
+        \item Передавать сообщения TCP keepalive с "garbage" октетом для обратной совместимости.
+    \end{itemize}
     \item Параметры различных приложений и служб.
-        \subitem Смещение времени подсети клиента от UTC.
-        \subitem Размер загрузочного файла (boot file size).
-        \subitem Следующий сервер (Next bootstrap server).
-        \subitem Путь файла для дампа памяти клиента в случае отказа (merit dump file).
-        \subitem Доменное имя.
-        \subitem IP адрес сервера с файлом подкачки (Swap server).
-        \subitem Путь к корневому диску (root path).
-        \subitem Доступный по TFTP файл с расширениями производителя (extensions path).
-        \subitem Имя домена NIS.
-        \subitem Тип узла NetBIOS (NetBIOS node type).
-        \subitem NetBIOS scope в соответствии с RFC1001, RFC1002.
-        \subitem Имя домена NIS+.
-        \subitem Имя загрузочного файла.
+    \begin{itemize}
+        \item Смещение времени подсети клиента от UTC.
+        \item Размер загрузочного файла (boot file size).
+        \item Следующий сервер (Next bootstrap server).
+        \item Путь файла для дампа памяти клиента в случае отказа (merit dump file).
+        \item Доменное имя.
+        \item IP адрес сервера с файлом подкачки (Swap server).
+        \item Путь к корневому диску (root path).
+        \item Доступный по TFTP файл с расширениями производителя (extensions path).
+        \item Имя домена NIS.
+        \item Тип узла NetBIOS (NetBIOS node type).
+        \item NetBIOS scope в соответствии с RFC1001, RFC1002.
+        \item Имя домена NIS+.
+        \item Имя загрузочного файла.
+    \end{itemize}
     \item Адреса прикладных серверов.
-        \subitem адреса TFTP серверов.
-        \subitem адреса DNS серверов.
-        \subitem адреса серверов времени (time servers, RFC868).
-        \subitem адреса серверов протоколирования MIT-LCS (log servers).
-        \subitem адреса cookie серверов (RFC865).
-        \subitem адреса серверов печати (RFC1179).
-        \subitem адреса серверов Imagen Impress.
-        \subitem адреса серверов Resource Location (RFC887).
-        \subitem адреса NIS серверов.
-        \subitem адреса NTP серверов.
-        \subitem адреса серверов NetBIOS datagram distribution.
-        \subitem адреса серверов шрифтов (X window system font servers).
-        \subitem адреса менеджеров X window system display.
-        \subitem адреса серверов NIS+.
-        \subitem адреса домашних IP агентов (mobile IP home agent).
-        \subitem адреса серверов SMTP.
-        \subitem адреса серверов POP3.
-        \subitem адреса серверов NNTP.
-        \subitem адреса серверов WWW.
-        \subitem адреса серверов Finger.
-        \subitem адреса серверов IRC.
-        \subitem адреса серверов streettalk.
-        \subitem адреса серверов STDA.
+    \begin{itemize}
+        \item адреса TFTP серверов.
+        \item адреса DNS серверов.
+        \item адреса серверов времени (time servers, RFC868).
+        \item адреса серверов протоколирования MIT-LCS (log servers).
+        \item адреса cookie серверов (RFC865).
+        \item адреса серверов печати (RFC1179).
+        \item адреса серверов Imagen Impress.
+        \item адреса серверов Resource Location (RFC887).
+        \item адреса NIS серверов.
+        \item адреса NTP серверов.
+        \item адреса серверов NetBIOS datagram distribution.
+        \item адреса серверов шрифтов (X window system font servers).
+        \item адреса менеджеров X window system display.
+        \item адреса серверов NIS+.
+        \item адреса домашних IP агентов (mobile IP home agent).
+        \item адреса серверов SMTP.
+        \item адреса серверов POP3.
+        \item адреса серверов NNTP.
+        \item адреса серверов WWW.
+        \item адреса серверов Finger.
+        \item адреса серверов IRC.
+        \item адреса серверов streettalk.
+        \item адреса серверов STDA.
+    \end{itemize}
 \end{itemize}
 
 У администратора должна быть возможность создавать множество экземпляров каждой из выше перечисленных групп и присваивать им имена.
@@ -342,7 +352,7 @@ DHCP серверов может быть несколько, а клиент в
 
 Помимо перечисленных выше опций, необходимо реализовать отправку опций расширений производителя (vendor extensions).
 Механизм их конфигурирования будет более сложный.
-\begin {itemize}
+\begin{itemize}
     \item Создание именованных опций.
     \item Создание групп опций.
     \item Распределение опций по группам (одна опция может быть в нескольких группах одновременно).
@@ -410,7 +420,7 @@ DHCP серверов может быть несколько, а клиент в
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/second.png}
-    \caption{}
+    \caption{Часть архитектуры}
     \label{fig:arch}
 \end{figure}
 
@@ -418,7 +428,7 @@ DHCP серверов может быть несколько, а клиент в
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/packet-view.png}
-    \caption{}
+    \caption{Часть архитектуры}
     \label{fig:packet-view}
 \end{figure}
 
@@ -460,7 +470,7 @@ DHCP серверов может быть несколько, а клиент в
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/dhcp-configurator.png}
-    \caption{}
+    \caption{Часть архитектуры}
     \label{fig:profiles}
 \end{figure}
 
@@ -469,7 +479,7 @@ DHCP серверов может быть несколько, а клиент в
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/pool.png}
-    \caption{}
+    \caption{Часть архитектуры}
     \label{fig:pool}
 \end{figure}
 
@@ -481,7 +491,7 @@ DHCP серверов может быть несколько, а клиент в
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/address-allocator.png}
-    \caption{}
+    \caption{Часть архитектуры}
     \label{fig:address_allocator}
 \end{figure}
 
@@ -497,7 +507,7 @@ DHCP серверов может быть несколько, а клиент в
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{build/pinger.png}
-    \caption{}
+    \caption{Часть архитектуры}
     \label{fig:pinger}
 \end{figure}
 
