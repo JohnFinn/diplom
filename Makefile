@@ -2,9 +2,10 @@ ifeq ($(BUILDDIR),)
 	BUILDDIR=./build
 endif
 
-all: $(BUILDDIR) pdf аннотация.tex paper.tex
+all: $(BUILDDIR) pdf paper.tex
 
-pdf: $(BUILDDIR)/аннотация.pdf $(BUILDDIR)/paper.pdf
+pdf: $(BUILDDIR)/Титульник.pdf $(BUILDDIR)/Аннотация.pdf $(BUILDDIR)/Задание.pdf $(BUILDDIR)/paper.pdf
+	pdfunite $^ $(BUILDDIR)/VKR.pdf
 
 diagrams: $(BUILDDIR)/first.png               \
           $(BUILDDIR)/second.png              \
@@ -23,9 +24,6 @@ diagrams: $(BUILDDIR)/first.png               \
 
 $(BUILDDIR):
 	mkdir $(BUILDDIR)
-
-$(BUILDDIR)/аннотация.pdf: аннотация.tex
-	pdflatex -output-directory $(BUILDDIR) $^
 
 $(BUILDDIR)/paper.pdf: paper.tex diagrams
 	pdflatex -output-directory $(BUILDDIR) $^
@@ -68,6 +66,15 @@ $(BUILDDIR)/pool.png: dia/pool.dia
 
 $(BUILDDIR)/address-allocator.png: dia/address-allocator.dia
 	dia $^ --export=$@
+
+$(BUILDDIR)/Аннотация.pdf: burocracy/Аннотация.docx
+	libreoffice --headless --convert-to pdf --outdir $(BUILDDIR) $^
+
+$(BUILDDIR)/Задание.pdf: burocracy/Задание.docx
+	libreoffice --headless --convert-to pdf --outdir $(BUILDDIR) $^
+
+$(BUILDDIR)/Титульник.pdf: burocracy/Титульник.docx
+	libreoffice --headless --convert-to pdf --outdir $(BUILDDIR) $^
 
 clean:
 	rm -r $(BUILDDIR)
