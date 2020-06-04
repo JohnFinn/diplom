@@ -8,7 +8,7 @@
 \usepackage{cite}
 \usepackage{titlesec}
 \usepackage{svg}
-\usepackage{geometry}
+\usepackage[a4paper]{geometry}
 \usepackage{indentfirst}
 \usepackage{float}
 \usepackage{xcolor}
@@ -312,7 +312,7 @@ DHCP серверов может быть несколько, а клиент в
         \item Максимальный размер собираемого сообщения (maximum datagram reassembly size).
         \item Время жизни пакета по умолчанию (TTL).
         \item Время устаревания MTU пути (Path MTU aging timeout).
-        \item Фильтры нелокальной маршутизации (policy filter).
+        \item Фильтры нелокальной маршрутизации (policy filter).
         \item Размеры MTU для поиска MTU пути (Path MTU plateau).
     \end{itemize}
     \item Параметры IP, специфичные для интерфейса.
@@ -321,8 +321,8 @@ DHCP серверов может быть несколько, а клиент в
         \item У всех подключенных подсетей такое же MTU (all subnets are local).
         \item Выполнять определение маски подсети (perform mask discovery).
         \item Отвечать на ICMP запросы маски подсети (mask supplier).
-        \item Выполнять поиск маршрутов способом определённым в RFC1256 (perform router discovery).
-        \item Адрес запросов обнаружения маршутизаторов (router solicitation address).
+        \item Выполнять поиск маршрутов способом, определённым в RFC1256 (perform router discovery).
+        \item Адрес запросов обнаружения маршрутизаторов (router solicitation address).
     \end{itemize}
     \item Параметры TCP.
     \begin{itemize}
@@ -550,7 +550,7 @@ DHCP серверов может быть несколько, а клиент в
 \pagebreak
 \section{Тестирование}
 
-Для тестирования были написаны Unit-тесты, с помощью библиотеки googletest.
+Для тестирования, с помощью библиотеки googletest были написаны Unit-тесты.
 Помимо них был написан python скрипт для эмуляции DHCP клиентов.
 
 В нём использовался линуксовый механизм сетевых пространств имён.
