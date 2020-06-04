@@ -14,6 +14,8 @@
 \usepackage{xcolor}
 \usepackage{soul}
 \usepackage{extsizes}
+\usepackage{hyperref}
+\usepackage{ragged2e}
 
 \geometry{
     left=25mm,
@@ -556,26 +558,52 @@ DHCP серверов может быть несколько, а клиент в
 \pagebreak
 \addcontentsline{toc}{section}{Список использованных источников}
 
-
+\begin{flushleft}
 \begin{thebibliography}{9}
 \bibitem{rfc2131}
-RFC2131.
+RFC2131, Dynamic Host Configuration Protocol \href{https://tools.ietf.org/html/rfc2131}{https://tools.ietf.org/html/rfc2131}
 
 \bibitem{rfc2132}
-RFC2132.
+RFC2132, DHCP Options and BOOTP Vendor Extensions \href{https://tools.ietf.org/html/rfc2132}{https://tools.ietf.org/html/rfc2132}
 
 \bibitem{rfc3046}
-RFC3046
+RFC3046, DHCP Relay Agent Information Option \href{https://tools.ietf.org/html/rfc3046}{https://tools.ietf.org/html/rfc3046}
+
+\bibitem{rfc3011}
+RFC3011, The IPv4 Subnet Selection Option for DHCP \href{https://tools.ietf.org/html/rfc3011}{https://tools.ietf.org/html/rfc3011}
+
+\bibitem{rfc3442}
+RFC3442, The Classless Static Route Option for Dynamic Host Configuration Protocol (DHCP) version 4 \href{https://tools.ietf.org/html/rfc3442}{https://tools.ietf.org/html/rfc3442}
+
+\bibitem{rfc4578}
+RFC4578, Dynamic Host Configuration Protocol (DHCP) Options for the Intel Preboot eXecution Environment (PXE) \href{https://tools.ietf.org/html/rfc4578}{https://tools.ietf.org/html/rfc4578}
+
+\bibitem{rfc3256}
+RFC3256,  The DOCSIS (Data-Over-Cable Service Interface Specifications) Device Class DHCP (Dynamic Host Configuration Protocol) Relay Agent Information Sub-option
+ \href{https://tools.ietf.org/html/rfc3256}{https://tools.ietf.org/html/rfc3256}
+
+\bibitem{rfc3527}
+RFC3527, Link Selection sub-option for the Relay Agent Information Option for DHCPv4 \href{https://tools.ietf.org/html/rfc3527}{https://tools.ietf.org/html/rfc3527}
 
 \bibitem{md-docs}
-Документация на МД.
+Аппаратно-Програмный комплекс "Маршутизатор доступа". Инструкция администратора сети.
 
 \bibitem{googletest-docs}
-Документация библиотеки googletest.
+Документация библиотеки googletest. \href{https://github.com/google/googletest/blob/master/googletest/docs/primer.md}{https://github.com/google/googletest/blob/master/googletest/docs/primer.md}
 
 \bibitem{man-ip-netns}
-Документация на сетевые пространства имён в Linux.
+Документация на сетевые пространства имён в Linux. \href{https://www.man7.org/linux/man-pages/man8/ip-netns.8.html}{https://www.man7.org/linux/man-pages/man8/ip-netns.8.html}
+
+\bibitem{tannenbaum}
+Таненбаум, Э. Компьютерные сети
+
+\bibitem{}
+Олифер, В. Компьютерные сети. Принципы, технологии, протоколы: Учебник для ВУЗов
+
+\bibitem{}
+Камер Д. Сети TCP/IP. Принципы, протоколы и структура
 
 \end{thebibliography}
+\end{flushleft}
 
 \end{document}
