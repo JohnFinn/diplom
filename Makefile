@@ -4,7 +4,7 @@ endif
 
 all: $(BUILDDIR) pdf paper.tex
 
-pdf: $(BUILDDIR)/Титульник.pdf $(BUILDDIR)/Аннотация.pdf $(BUILDDIR)/Задание.pdf $(BUILDDIR)/paper.pdf
+pdf: $(BUILDDIR)/Титульник.pdf $(BUILDDIR)/Задание.pdf $(BUILDDIR)/Аннотация.pdf $(BUILDDIR)/paper.pdf
 	pdfunite $^ $(BUILDDIR)/VKR.pdf
 
 diagrams: $(BUILDDIR)/first.png               \

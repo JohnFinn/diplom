@@ -37,6 +37,31 @@
 \tableofcontents
 
 \pagebreak
+\section*{Список терминов и сокращений}
+\addcontentsline{toc}{section}{Список терминов и сокращений}
+
+\textbf{DHCP} - dynamic host configuration protocol
+
+\textbf{IP} - Internet Protocol.
+
+\textbf{TCP} - Transmission Control Protocol.
+
+\textbf{ICMP} - Internet Control Message Protocol.
+
+\textbf{RADIUS} - Remote Authentication Dial-In User Service.
+
+\textbf{MTU} - Maximum transmission unit.
+
+\textbf{TTL} - Time to live.
+
+\textbf{RFC} - Request for Comments.
+
+\textbf{МД} - Маршрутизатор доступа.
+
+\textbf{ФСТЭК}- Федеральная служба по техническому и экспортному контролю.
+
+
+\pagebreak
 \section*{Введение}
 \addcontentsline{toc}{section}{Введение}
 
@@ -51,7 +76,7 @@
         \item маршрутизатор доступа гарда 10g
         \item криптомаршрутизатор многопротокольный
         \item устройство уплотнения каналов «уук-512»
-        \item межсетевой экран «тродос»
+        \item межсетевой экран « - Internet Protocol.тродос»
         \item система мониторинга и управления сетями и сервисами «нейрон»
     \end{itemize}
     \item Средства телефонной и видеотелефонной связи
@@ -163,6 +188,7 @@ DHCP серверов может быть несколько, а клиент в
 Один будет отвечать на запросы клиентов.
 Второй же, в свою очередь будет отвечать за изменение настроек.
 
+\pagebreak
 \section{Анализ существующих решений, обоснование выбора.}
 
 Существует множество DHCP серверов с открытым исходным кодом, написанных под linux. Среди них:
@@ -195,6 +221,7 @@ DHCP серверов может быть несколько, а клиент в
 Таким образом трудозатраты на портирование и на написание с нуля будут примерно одинаковые.
 Поэтому был сделан выбор в пользу написания с нуля, потому что в таком случае будет полное понимание написанного кода.
 
+\pagebreak
 \section{Требования к разрабатываемым модулям}
 
 \subsection{Реализация протокола DHCP в соответствии с RFC2131.}
